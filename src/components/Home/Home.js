@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getPostBySearch, getPosts } from '../../actions/posts';
+import { getPostBySearch} from '../../actions/posts';
 import Pagination from '../Pagination';
 import ChipInput from 'material-ui-chip-input';
 import useStyles from './styles';
-import { TextField, AppBar, Container, Grid, Grow, Paper, Typography, Button } from '@material-ui/core'
+import { TextField, AppBar, Container, Grid, Grow, Paper,Button } from '@material-ui/core'
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -34,7 +34,7 @@ const Home = () => {
      setTags([...tags,tag]);
   }
   const handleDelete=(tagD)=>{
-    setTags(tags.filter((tag)=>tag!=tagD));
+    setTags(tags.filter((tag)=>tag!==tagD));
   }
   const searchPost=()=>{
     // e.preventDefault();

@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { Avatar, Button, Container, Grid, Icon, Paper, TextField, Typography } from '@material-ui/core';
+import { Avatar, Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import useStyles from './styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from './Input';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
-import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {signup,signin} from '../../actions/auth';
 const Auth = () => {
     const classes = useStyles();
-    const state = null;
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false);
@@ -40,38 +37,38 @@ const Auth = () => {
     const switchMode = () => {
         setIsSignUp((prevState) => !prevState);
     }
-    const googleSuccess = async (res) => {
+    // const googleSuccess = async (res) => {
         
         
-        const decoded = jwt_decode(res.credential);
-        console.log(decoded);
-        const { name, picture, sub } = decoded;
-        const user = {
-            _id: sub,
-            _type: 'user',
-            name:name,
-            image: picture
-        }
+    //     const decoded = jwt_decode(res.credential);
+    //     console.log(decoded);
+    //     const { name, picture, sub } = decoded;
+    //     const user = {
+    //         _id: sub,
+    //         _type: 'user',
+    //         name:name,
+    //         image: picture
+    //     }
 
         // console.log(name);
         // console.log(picture);
         // console.log(sub);
         // console.log(decoded);
-        try {
-            dispatch({
-                type: 'AUTH',
-                data: { user }
-            })
-            history.push('/');
-        } catch (err) {
-            console.log(err);
-        }
+    //     try {
+    //         dispatch({
+    //             type: 'AUTH',
+    //             data: { user }
+    //         })
+    //         history.push('/');
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
 
-    }
-    const googleFailure = () => {
-        console.log("Google Sign In was Unsuccessful");
+    // }
+    // const googleFailure = () => {
+    //     console.log("Google Sign In was Unsuccessful");
 
-    }
+    // }
     return (
         <Container component="main" maxwidth="xs" className={classes.container}>
             <Paper className={classes.paper} elevation={3}>

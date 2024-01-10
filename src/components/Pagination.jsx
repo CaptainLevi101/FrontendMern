@@ -16,7 +16,7 @@ const Paginate=({page})=>{
 
     return (
         <Pagination 
-        class={{ul:classes.ul}}
+        className={classes.ul}
         count={numberOfPages}
         page={Number(page) || 1}
         variant="outlined"
